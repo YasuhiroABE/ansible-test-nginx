@@ -1,5 +1,5 @@
 ---
 # defaults file for ansible-homegw-nginx
 
-yatest-nginx-enable-fcgiwrap: true
+yatest_nginx_enable_fcgiwrap: true
 
