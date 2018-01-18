@@ -1,2 +1,4 @@
 ---
 # defaults file for ansible-homegw-nginx
+
+test-nginx-enable-fcgiwrap: True

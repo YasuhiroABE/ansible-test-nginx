@@ -18,3 +18,12 @@
   with_items:
     - nginx
   register: result
+
+- name: install fast-cgi related packages 
+  become: True
+  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=1200
+  with_items:
+    - fastcgi
+  when: test-nginx-enable-fcgiwrap
+  register: result
+
