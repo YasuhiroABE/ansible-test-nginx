@@ -1,0 +1,19 @@
+---
+# tasks file for ansible-homegw-nginx
+- name: add dpkg key for nginx
+  apt_key:
+    url: http://nginx.org/keys/nginx_signing.key
+    state: present
+
+- name: add repository
+  becme: True
+  apt_repository: 
+    repo: deb http://nginx.org/packages/mainline/ubuntu/ xenial nginx
+    state: present
+
+- name: install essential packages for this task
+  become: True
+  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=1200
+  with_items:
+    - nginx
+  register: result
