@@ -25,6 +25,8 @@
   with_items:
     - fcgiwrap
     - spawn-fcgi
+    - ruby-fcgi
+    - ruby
   when: yatest_nginx_enable_fcgiwrap
   register: result
 
@@ -39,6 +41,7 @@
   with_items:
     - fastcgi
     - fcgiwrap
+    - debcache
   register: result
 
 - name: copy sample fast-cgi default config file for nginx
