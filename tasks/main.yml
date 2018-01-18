@@ -24,6 +24,30 @@
   apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=1200
   with_items:
     - fcgiwrap
+    - spawn-fcgi
   when: yatest_nginx_enable_fcgiwrap
+  register: result
+
+- name: copy sample fast-cgi config file for nginx
+  become: True
+  copy:
+    src:   "files/nginx.{{ item }}.conf"
+    dest:  "/etc/nginx/conf.d/{{ item }}.conf"
+    owner: "nginx"
+    group: "root"
+    mode:  "644"
+  with_items:
+    - fastcgi
+    - fcgiwrap
+  register: result
+
+- name: copy sample fast-cgi default config file for nginx
+  become: True
+  copy:
+    src:   "files/etc.defaults.fcgiwrap"
+    dest:  "/etc/defaults/fcgiwrap"
+    owner: "root"
+    group: "root"
+    mode:  "644"
   register: result
 
