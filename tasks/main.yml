@@ -24,6 +24,6 @@
   apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=1200
   with_items:
     - fastcgi
-  when: test-nginx-enable-fcgiwrap
+  when: yatest_nginx_enable_fcgiwrap
   register: result
 
