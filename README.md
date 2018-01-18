@@ -1,8 +1,7 @@
 YasuhiroABE.test-nginx
-=========
+======================
 
 This role sets up the mainline nginx which provided by nginx corp for my test.
-
 
 Requirements
 ------------
@@ -33,9 +32,7 @@ Example Playbook
 
     - hosts: all
       roles:
-        - {role: jdauphant.nginx,
-           nginx_http_params: ["sendfile on", "access_log /var/log/nginx/access.log"]
-           }
+        - ansible-test-nginx
 
 License
 -------
