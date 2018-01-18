@@ -44,8 +44,8 @@
 - name: copy sample fast-cgi default config file for nginx
   become: True
   copy:
-    src:   "files/etc.defaults.fcgiwrap"
-    dest:  "/etc/defaults/fcgiwrap"
+    src:   "files/etc.default.fcgiwrap"
+    dest:  "/etc/default/fcgiwrap"
     owner: "root"
     group: "root"
     mode:  "644"
